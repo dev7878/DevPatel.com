@@ -7,8 +7,8 @@ import emailjs from "@emailjs/browser";
 export function ContactSection() {
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,19 +27,42 @@ export function ContactSection() {
     setIsSubmitting(true);
     setError(null);
 
-    // EmailJS configuration
-    // You need to sign up at EmailJS.com and get your own service ID, template ID, and user ID
+    // EmailJS configuration - main contact form to you
     const serviceId = "service_portfolio"; // Replace with your service ID
     const templateId = "template_portfolio"; // Replace with your template ID
     const publicKey = "YOUR_PUBLIC_KEY"; // Replace with your public key
 
+    // Send notification email to you
     emailjs
       .sendForm(serviceId, templateId, form.current!, publicKey)
       .then((result) => {
-        console.log("Email sent successfully:", result.text);
+        console.log("Email to owner sent successfully:", result.text);
+
+        // Send acknowledgment email to the sender
+        const acknowledgeTemplateId = "template_acknowledge"; // Replace with your acknowledgment template ID
+
+        // Prepare template parameters for acknowledgment email
+        const acknowledgeParams = {
+          to_name: formData.user_name,
+          to_email: formData.user_email,
+          message:
+            "Thank you for contacting me. I've received your message and will get back to you soon.",
+          from_name: "Dev Patel",
+        };
+
+        // Send acknowledgment email
+        return emailjs.send(
+          serviceId,
+          acknowledgeTemplateId,
+          acknowledgeParams,
+          publicKey
+        );
+      })
+      .then((result) => {
+        console.log("Acknowledgment email sent successfully:", result?.text);
         setIsSubmitting(false);
         setSubmitted(true);
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ user_name: "", user_email: "", message: "" });
 
         // Reset the submission message after a delay
         setTimeout(() => {
@@ -117,14 +140,14 @@ export function ContactSection() {
                     htmlFor="user_name"
                     className="block text-sm font-medium text-text dark:text-text-dark mb-1"
                   >
-                    Name
+                    Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     id="user_name"
                     name="user_name"
                     required
-                    value={formData.name}
+                    value={formData.user_name}
                     onChange={handleChange}
                     className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-text dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-primary"
                   />
@@ -135,14 +158,14 @@ export function ContactSection() {
                     htmlFor="user_email"
                     className="block text-sm font-medium text-text dark:text-text-dark mb-1"
                   >
-                    Email
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
                     id="user_email"
                     name="user_email"
                     required
-                    value={formData.email}
+                    value={formData.user_email}
                     onChange={handleChange}
                     className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-text dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-primary"
                   />
@@ -153,7 +176,7 @@ export function ContactSection() {
                     htmlFor="message"
                     className="block text-sm font-medium text-text dark:text-text-dark mb-1"
                   >
-                    Message
+                    Message <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -185,7 +208,8 @@ export function ContactSection() {
 
                 {submitted && (
                   <div className="mt-4 p-3 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-md">
-                    Thank you for your message! I will get back to you soon.
+                    Thank you for your message! I will get back to you soon. An
+                    acknowledgement has been sent to your email.
                   </div>
                 )}
 
