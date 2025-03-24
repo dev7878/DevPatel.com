@@ -15,6 +15,11 @@ const initializeEmailJs = () => {
 // Call the initialization function
 initializeEmailJs();
 
+// Service and template IDs - make sure these match your EmailJS configuration
+const SERVICE_ID = "service_sib2czt"; // Your EmailJS service ID
+const TEMPLATE_ID = "template_portfolio"; // Your main contact form template ID
+const ACKNOWLEDGE_TEMPLATE_ID = "template_acknowledge"; // Your acknowledgment template ID
+
 export function ContactSection() {
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
@@ -38,13 +43,7 @@ export function ContactSection() {
     setIsSubmitting(true);
     setError(null);
 
-    // Get EmailJS configuration from environment variables
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const acknowledgeTemplateId =
-      process.env.NEXT_PUBLIC_EMAILJS_ACKNOWLEDGE_TEMPLATE_ID;
-
-    if (!serviceId || !templateId) {
+    if (!process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
       setError(
         "Contact form is not properly configured. Please email me directly."
       );
@@ -54,32 +53,26 @@ export function ContactSection() {
 
     // Send notification email to you
     emailjs
-      .sendForm(serviceId, templateId, form.current!)
+      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current!)
       .then((result) => {
         console.log("Email to owner sent successfully:", result.text);
 
-        // Send acknowledgment email to the sender if template is configured
-        if (acknowledgeTemplateId) {
-          // Prepare template parameters for acknowledgment email
-          const acknowledgeParams = {
-            to_name: formData.user_name,
-            to_email: formData.user_email,
-            reply_to: formData.user_email, // Add this to explicitly set the recipient's email
-            message:
-              "Thank you for contacting me. I've received your message and will get back to you soon.",
-            from_name: "Dev Patel",
-            recipient: formData.user_email, // Add this for additional compatibility
-            email: formData.user_email, // Add this for additional compatibility
-          };
+        // Send acknowledgment email to the sender
+        // Prepare template parameters for acknowledgment email
+        const acknowledgeParams = {
+          to_name: formData.user_name,
+          to_email: formData.user_email,
+          message:
+            "Thank you for contacting me. I've received your message and will get back to you soon.",
+          from_name: "Dev Patel",
+        };
 
-          // Send acknowledgment email
-          return emailjs.send(
-            serviceId,
-            acknowledgeTemplateId,
-            acknowledgeParams
-          );
-        }
-        return result;
+        // Send acknowledgment email
+        return emailjs.send(
+          SERVICE_ID,
+          ACKNOWLEDGE_TEMPLATE_ID,
+          acknowledgeParams
+        );
       })
       .then((result) => {
         console.log("Acknowledgment email sent successfully:", result?.text);

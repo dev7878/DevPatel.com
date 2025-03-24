@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: process.env.NODE_ENV === "production" ? "/DevPatel.com" : "",
   images: {
     unoptimized: true,
   },
+  assetPrefix: process.env.NODE_ENV === "production" ? "/DevPatel.com" : "",
+  basePath: process.env.NODE_ENV === "production" ? "/DevPatel.com" : "",
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;

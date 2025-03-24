@@ -1,4 +1,5 @@
 import { FiGithub, FiExternalLink } from "react-icons/fi";
+import { getImagePath } from "@/utils/imagePaths";
 
 export function ProjectsSection() {
   const projects = [
@@ -125,7 +126,7 @@ export function ProjectsSection() {
               >
                 <div className="h-56 bg-gray-300 dark:bg-gray-700 relative">
                   <img
-                    src={project.image}
+                    src={getImagePath(project.image)}
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
