@@ -14,8 +14,8 @@ export function AboutSection() {
               <img
                 src={getImagePath("my-picture.jpg")}
                 alt="Dev Patel"
-                className="w-full h-full object-contain object-center"
-                style={{ imageRendering: "crisp-edges" }}
+                className="w-full h-full object-cover object-center"
+                style={{ maxHeight: "100%" }}
               />
             </div>
             <div>

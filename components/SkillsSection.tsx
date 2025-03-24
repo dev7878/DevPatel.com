@@ -1,6 +1,29 @@
 import { FiCode, FiDatabase, FiTool, FiServer, FiCloud } from "react-icons/fi";
 
 export function SkillsSection() {
+  const skills = {
+    programming: ["Python", "JavaScript", "TypeScript", "SQL", "Java", "Bash"],
+    backend: ["Node.js", "Angular", "Nest.js", "Django", "Flask", "MongoDB"],
+    frontend: ["React.js", "Redux", "WebSockets", "REST APIs", "HTML/CSS"],
+    dataEngineering: [
+      "Kafka",
+      "Databricks",
+      "Airflow",
+      "MLflow",
+      "Apache Spark",
+      "Azure Data Lake",
+    ],
+    cloudDevOps: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform"],
+    monitoring: [
+      "Redis",
+      "ElasticSearch",
+      "TensorFlow",
+      "PyTorch",
+      "LangChain",
+      "FAISS",
+    ],
+  };
+
   return (
     <section
       id="skills"
@@ -24,48 +47,16 @@ export function SkillsSection() {
                   Programming Languages
                 </h3>
               </div>
-              <ul className="space-y-3">
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Python</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[90%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    JavaScript
+              <div className="flex flex-wrap gap-2">
+                {skills.programming.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-text dark:text-text-dark rounded-md"
+                  >
+                    {skill}
                   </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[95%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    TypeScript
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">SQL</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[90%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Java</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[75%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Bash</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
@@ -75,44 +66,16 @@ export function SkillsSection() {
                   Backend & Databases
                 </h3>
               </div>
-              <ul className="space-y-3">
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Node.js</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[90%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Angular</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Nest.js</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Django</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Flask</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">MongoDB</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-              </ul>
+              <div className="flex flex-wrap gap-2">
+                {skills.backend.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-text dark:text-text-dark rounded-md"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
@@ -122,46 +85,16 @@ export function SkillsSection() {
                   Frontend Technologies
                 </h3>
               </div>
-              <ul className="space-y-3">
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    React.js
+              <div className="flex flex-wrap gap-2">
+                {skills.frontend.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-text dark:text-text-dark rounded-md"
+                  >
+                    {skill}
                   </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[95%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Redux</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[90%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    WebSockets
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    REST APIs
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[95%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    HTML/CSS
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[100%]"></div>
-                  </div>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
@@ -171,50 +104,16 @@ export function SkillsSection() {
                   Data Engineering
                 </h3>
               </div>
-              <ul className="space-y-3">
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Kafka</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    Databricks
+              <div className="flex flex-wrap gap-2">
+                {skills.dataEngineering.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-text dark:text-text-dark rounded-md"
+                  >
+                    {skill}
                   </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Airflow</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">MLflow</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    Apache Spark
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[75%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    Azure Data Lake
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[70%]"></div>
-                  </div>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
@@ -224,48 +123,16 @@ export function SkillsSection() {
                   Cloud & DevOps
                 </h3>
               </div>
-              <ul className="space-y-3">
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">AWS</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[90%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Azure</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">GCP</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[70%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Docker</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    Kubernetes
+              <div className="flex flex-wrap gap-2">
+                {skills.cloudDevOps.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-text dark:text-text-dark rounded-md"
+                  >
+                    {skill}
                   </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    Terraform
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[75%]"></div>
-                  </div>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
@@ -275,50 +142,16 @@ export function SkillsSection() {
                   Monitoring & Machine Learning
                 </h3>
               </div>
-              <ul className="space-y-3">
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">Redis</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    ElasticSearch
+              <div className="flex flex-wrap gap-2">
+                {skills.monitoring.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-text dark:text-text-dark rounded-md"
+                  >
+                    {skill}
                   </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[75%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    TensorFlow
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[80%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">PyTorch</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[75%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">
-                    LangChain
-                  </span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span className="text-text dark:text-text-dark">FAISS</span>
-                  <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-primary w-[70%]"></div>
-                  </div>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
           </div>
         </div>
