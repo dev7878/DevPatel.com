@@ -21,10 +21,10 @@ A modern, responsive personal portfolio website built with Next.js and Tailwind 
 
 ```bash
 # Clone the repository
-git clone https://github.com/dev7878/personal-portfolio.git
+git clone https://github.com/dev7878/DevPatel.com.git
 
 # Navigate to the project directory
-cd personal-portfolio
+cd DevPatel.com
 
 # Install dependencies
 npm install
