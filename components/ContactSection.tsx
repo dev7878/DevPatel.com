@@ -64,9 +64,12 @@ export function ContactSection() {
           const acknowledgeParams = {
             to_name: formData.user_name,
             to_email: formData.user_email,
+            reply_to: formData.user_email, // Add this to explicitly set the recipient's email
             message:
               "Thank you for contacting me. I've received your message and will get back to you soon.",
             from_name: "Dev Patel",
+            recipient: formData.user_email, // Add this for additional compatibility
+            email: formData.user_email, // Add this for additional compatibility
           };
 
           // Send acknowledgment email
