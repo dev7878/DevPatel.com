@@ -1,16 +1,16 @@
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-background dark:bg-background-dark">
+    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-text dark:text-text-dark">
             About Me
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="aspect-square rounded-2xl bg-white dark:bg-gray-800 overflow-hidden shadow-lg">
+            <div className="aspect-square rounded-2xl bg-gray-200 dark:bg-gray-800 overflow-hidden shadow-lg">
               {/* Display the profile image */}
               <img
-                src="images/my-picture.jpg"
+                src="/images/my-picture.jpg"
                 alt="Dev Patel"
                 className="w-full h-full object-contain object-center"
                 style={{ imageRendering: "crisp-edges" }}

@@ -5,9 +5,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
-  title: "Dev Patel - Software Engineer",
+  title: "John Doe - Software Engineer",
   description:
-    "Personal portfolio of Dev Patel, a software engineer specializing in web development.",
+    "Personal portfolio of John Doe, a software engineer specializing in web development.",
 };
 
 export default function RootLayout({

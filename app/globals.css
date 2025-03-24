@@ -3,23 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --card-background: #ffffff;
-  --section-background: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-600: #4b5563;
-  --gray-800: #1f2937;
-}
-
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --card-background: #1a1a1a;
-  --section-background: #121212;
-  --gray-100: #1f1f1f;
-  --gray-200: #2d2d2d;
-  --gray-600: #a3a3a3;
-  --gray-800: #d1d1d1;
 }
 
 @theme inline {
@@ -29,23 +12,15 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Additional dark mode mappings */
-.bg-white {
-  background-color: var(--card-background);
-}
-.bg-gray-50,
-.bg-gray-100 {
-  background-color: var(--section-background);
-}
-.text-gray-600 {
-  color: var(--gray-600);
-}
-.text-gray-800 {
-  color: var(--gray-800);
 }

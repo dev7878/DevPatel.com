@@ -7,16 +7,16 @@ export function SkillsSection() {
       className="py-20 bg-background dark:bg-background-dark"
     >
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-6 text-text dark:text-text-dark">
-            My Skills
+            Skills & Expertise
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto">
-            I specialize in full-stack development with expertise in machine
-            learning deployment and cloud infrastructure.
+          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+            Here are the technologies and tools I work with across various
+            domains.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
               <div className="flex items-center mb-4">
                 <FiCode className="w-6 h-6 text-primary" />

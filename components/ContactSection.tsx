@@ -4,6 +4,17 @@ import { useState, ChangeEvent, FormEvent, useRef } from "react";
 import { FiMail, FiGithub, FiLinkedin, FiSend } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 
+// Initialize EmailJS with your public key
+const initializeEmailJs = () => {
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  if (publicKey) {
+    emailjs.init(publicKey);
+  }
+};
+
+// Call the initialization function
+initializeEmailJs();
+
 export function ContactSection() {
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
@@ -27,36 +38,45 @@ export function ContactSection() {
     setIsSubmitting(true);
     setError(null);
 
-    // EmailJS configuration - main contact form to you
-    const serviceId = "service_portfolio"; // Replace with your service ID
-    const templateId = "template_portfolio"; // Replace with your template ID
-    const publicKey = "YOUR_PUBLIC_KEY"; // Replace with your public key
+    // Get EmailJS configuration from environment variables
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const acknowledgeTemplateId =
+      process.env.NEXT_PUBLIC_EMAILJS_ACKNOWLEDGE_TEMPLATE_ID;
+
+    if (!serviceId || !templateId) {
+      setError(
+        "Contact form is not properly configured. Please email me directly."
+      );
+      setIsSubmitting(false);
+      return;
+    }
 
     // Send notification email to you
     emailjs
-      .sendForm(serviceId, templateId, form.current!, publicKey)
+      .sendForm(serviceId, templateId, form.current!)
       .then((result) => {
         console.log("Email to owner sent successfully:", result.text);
 
-        // Send acknowledgment email to the sender
-        const acknowledgeTemplateId = "template_acknowledge"; // Replace with your acknowledgment template ID
+        // Send acknowledgment email to the sender if template is configured
+        if (acknowledgeTemplateId) {
+          // Prepare template parameters for acknowledgment email
+          const acknowledgeParams = {
+            to_name: formData.user_name,
+            to_email: formData.user_email,
+            message:
+              "Thank you for contacting me. I've received your message and will get back to you soon.",
+            from_name: "Dev Patel",
+          };
 
-        // Prepare template parameters for acknowledgment email
-        const acknowledgeParams = {
-          to_name: formData.user_name,
-          to_email: formData.user_email,
-          message:
-            "Thank you for contacting me. I've received your message and will get back to you soon.",
-          from_name: "Dev Patel",
-        };
-
-        // Send acknowledgment email
-        return emailjs.send(
-          serviceId,
-          acknowledgeTemplateId,
-          acknowledgeParams,
-          publicKey
-        );
+          // Send acknowledgment email
+          return emailjs.send(
+            serviceId,
+            acknowledgeTemplateId,
+            acknowledgeParams
+          );
+        }
+        return result;
       })
       .then((result) => {
         console.log("Acknowledgment email sent successfully:", result?.text);
