@@ -10,7 +10,7 @@ export function AboutSection() {
             <div className="aspect-square rounded-2xl bg-white dark:bg-gray-800 overflow-hidden shadow-lg">
               {/* Display the profile image */}
               <img
-                src="/images/my-picture.jpg"
+                src="images/my-picture.jpg"
                 alt="Dev Patel"
                 className="w-full h-full object-contain object-center"
                 style={{ imageRendering: "crisp-edges" }}
