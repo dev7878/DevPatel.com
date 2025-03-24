@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useRef } from "react";
 import { FiMail, FiGithub, FiLinkedin, FiSend } from "react-icons/fi";
+import emailjs from "@emailjs/browser";
 
 export function ContactSection() {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,6 +13,7 @@ export function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,22 +25,41 @@ export function ContactSection() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // This would be replaced with actual form submission logic
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: "", email: "", message: "" });
+    // EmailJS configuration
+    // You need to sign up at EmailJS.com and get your own service ID, template ID, and user ID
+    const serviceId = "service_portfolio"; // Replace with your service ID
+    const templateId = "template_portfolio"; // Replace with your template ID
+    const publicKey = "YOUR_PUBLIC_KEY"; // Replace with your public key
 
-      // Reset the submission message after a delay
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    }, 1500);
+    emailjs
+      .sendForm(serviceId, templateId, form.current!, publicKey)
+      .then((result) => {
+        console.log("Email sent successfully:", result.text);
+        setIsSubmitting(false);
+        setSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+
+        // Reset the submission message after a delay
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("Failed to send email:", error);
+        setIsSubmitting(false);
+        setError(
+          "Failed to send message. Please try again or email me directly."
+        );
+      });
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section
+      id="contact"
+      className="py-20 bg-background dark:bg-background-dark"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-6 text-text dark:text-text-dark">
@@ -89,18 +111,18 @@ export function ContactSection() {
             </div>
 
             <div className="md:col-span-3">
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form ref={form} onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
-                    htmlFor="name"
+                    htmlFor="user_name"
                     className="block text-sm font-medium text-text dark:text-text-dark mb-1"
                   >
                     Name
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="user_name"
+                    name="user_name"
                     required
                     value={formData.name}
                     onChange={handleChange}
@@ -110,15 +132,15 @@ export function ContactSection() {
 
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="user_email"
                     className="block text-sm font-medium text-text dark:text-text-dark mb-1"
                   >
                     Email
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
+                    id="user_email"
+                    name="user_email"
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -164,6 +186,12 @@ export function ContactSection() {
                 {submitted && (
                   <div className="mt-4 p-3 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-md">
                     Thank you for your message! I will get back to you soon.
+                  </div>
+                )}
+
+                {error && (
+                  <div className="mt-4 p-3 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 rounded-md">
+                    {error}
                   </div>
                 )}
               </form>
