@@ -1,13 +1,13 @@
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="about" className="py-20 bg-background dark:bg-background-dark">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-text dark:text-text-dark">
             About Me
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="aspect-square rounded-2xl bg-gray-200 dark:bg-gray-800 overflow-hidden shadow-lg">
+            <div className="aspect-square rounded-2xl bg-white dark:bg-gray-800 overflow-hidden shadow-lg">
               {/* Display the profile image */}
               <img
                 src="/images/my-picture.jpg"
