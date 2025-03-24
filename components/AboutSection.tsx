@@ -20,13 +20,15 @@ export function AboutSection() {
             </div>
             <div>
               <p className="text-lg mb-4 text-text dark:text-text-dark">
-                I&apos;m a passionate Software Engineer with over 5 years of
-                experience building web applications and services.
+                I&apos;m a passionate Software Engineer with experience in
+                full-stack development, cloud engineering, and data analytics
+                through various co-op positions in the financial sector.
               </p>
               <p className="text-lg mb-4 text-text dark:text-text-dark">
-                My journey in technology began when I built my first website at
-                14. Since then, I&apos;ve been hooked on the power of code to
-                transform ideas into reality.
+                My journey in technology began during my studies at McMaster
+                University, where I developed a strong foundation in software
+                engineering principles. My practical experience spans React,
+                Node.js, Python, AWS, and data engineering technologies.
               </p>
               <p className="text-lg mb-6 text-text dark:text-text-dark">
                 When I&apos;m not coding, you can find me playing cricket,
