@@ -6,7 +6,7 @@ export function ProjectsSection() {
       title: "Stock Price Prediction MLOps Project",
       description:
         "A comprehensive MLOps project for stock price prediction using multiple machine learning models (LSTM, XGBoost, LightGBM) with data ingestion, model deployment, and monitoring capabilities.",
-      image: "/images/stock-prediction.webp",
+      image: "images/stock-prediction.webp",
       technologies: [
         "Python",
         "MLflow",
@@ -24,7 +24,7 @@ export function ProjectsSection() {
       title: "Fin-Bot Finance News Research Tool",
       description:
         "An LLM-powered document retrieval system that uses LangChain, FAISS, and OpenAI for efficient semantic search of financial news articles, allowing users to query and analyze financial information through natural language.",
-      image: "/images/finbot.jpg",
+      image: "images/finbot.jpg",
       technologies: [
         "Python",
         "LangChain",
@@ -40,7 +40,7 @@ export function ProjectsSection() {
       title: "Cloud Native Resource Monitoring App",
       description:
         "A scalable Python application deployed on AWS EKS for monitoring CPU and memory usage across cloud resources, featuring real-time metrics, threshold-based alerts, and an interactive dashboard.",
-      image: "/images/cloud-monitoring.jpg",
+      image: "images/cloud-monitoring.jpg",
       technologies: [
         "Python",
         "AWS EKS",
@@ -56,7 +56,7 @@ export function ProjectsSection() {
       title: "AI LOGINSIGHT - Security Log Analyzer",
       description:
         "A security-focused log analysis tool designed to help administrators monitor and understand security logs from various systems. Uses structured generation techniques to summarize logs and detect potential security threats effectively.",
-      image: "/images/loginsight.jpg",
+      image: "images/loginsight.jpg",
       technologies: [
         "Python",
         "LLMs",
@@ -72,7 +72,7 @@ export function ProjectsSection() {
       title: "Stock Trading Application",
       description:
         "A full-stack TypeScript application for stock market trading with portfolio management, real-time market data, and personalized investment strategies, featuring secure user authentication and transaction history.",
-      image: "/images/stock-trading.jpg",
+      image: "images/stock-trading.jpg",
       technologies: [
         "TypeScript",
         "React",
@@ -88,7 +88,7 @@ export function ProjectsSection() {
       title: "Student Performance Indicator",
       description:
         "A data science project that analyzes factors affecting student test scores and builds predictive models. Features exploratory data analysis, multiple regression algorithms (XGBoost, CatBoost), feature importance analysis, and visualization dashboards.",
-      image: "/images/student-performance.jpg",
+      image: "images/student-performance.jpg",
       technologies: [
         "Python",
         "Scikit-learn",

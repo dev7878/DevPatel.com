@@ -61,29 +61,29 @@ export function ContactSection() {
 
               <div className="space-y-4">
                 <a
-                  href="mailto:john.doe@example.com"
+                  href="mailto:career.devpatel@gmail.com"
                   className="flex items-center text-text dark:text-text-dark hover:text-primary transition-colors"
                 >
                   <FiMail className="w-5 h-5 mr-3" />
-                  john.doe@example.com
+                  career.devpatel@gmail.com
                 </a>
                 <a
-                  href="https://github.com/johndoe"
+                  href="https://github.com/dev7878"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-text dark:text-text-dark hover:text-primary transition-colors"
                 >
                   <FiGithub className="w-5 h-5 mr-3" />
-                  github.com/johndoe
+                  github.com/dev7878
                 </a>
                 <a
-                  href="https://linkedin.com/in/johndoe"
+                  href="https://www.linkedin.com/in/devpatel7878/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-text dark:text-text-dark hover:text-primary transition-colors"
                 >
                   <FiLinkedin className="w-5 h-5 mr-3" />
-                  linkedin.com/in/johndoe
+                  linkedin.com/in/devpatel7878
                 </a>
               </div>
             </div>
